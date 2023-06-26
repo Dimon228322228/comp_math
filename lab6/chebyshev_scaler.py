@@ -6,7 +6,7 @@ class InvalidPointError(Exception):
     pass
 
 
-class CholeskyInterpolation:
+class ChebyshevInterpolation:
 
     def __init__(self, a: float, b: float):
         self.a, self.b = a, b

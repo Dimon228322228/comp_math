@@ -1,6 +1,6 @@
 from lab6.data import FUNCTIONS
 from lab6.io_module import IO
-from lab6.cholesky_scaler import CholeskyInterpolation
+from lab6.chebyshev_scaler import ChebyshevInterpolation
 from lab6.lagrange_interpol import LagrangeInterpolation
 from lab6.graph import Graph
 import numpy as np
@@ -19,7 +19,7 @@ def main():
     f = FUNCTIONS[num_f].f
     a, b = io_module.read_boundaries()
     n = io_module.read_dot_amount()
-    cholesky = CholeskyInterpolation(a, b)
+    cholesky = ChebyshevInterpolation(a, b)
     x_unit_cholesky = cholesky.get_root_by_section(n)
     y_unit_cholesky = [f(x) for x in x_unit_cholesky]
     noise = create_noise(y_unit_cholesky)

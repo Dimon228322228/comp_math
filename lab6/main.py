@@ -25,7 +25,7 @@ def main():
     noise = create_noise(y_unit_cholesky)
     y_unit_cholesky += noise
     x_unit_linear = []
-    x = a 
+    x = a
     step = (b - a) / n
     for i in range(len(y_unit_cholesky)):
         x_unit_linear.append(x)
@@ -48,9 +48,11 @@ def main():
         .set_x_axis("X") \
         .set_y_axis("Y") \
         .add_blue_plot(x_data, y_real, "Исходная функция") \
-        .add_red_plot(x_data, y_approximate_cholesky, "Интерполяция с x_i Холецкого") \
-        .add_green_plot(x_data, y_approximate_linear, "Интерполяция с линейным x_i") \
-        .add_init_black_data(x_unit_cholesky, y_unit_cholesky).show()
+        .add_red_plot(x_data, y_approximate_cholesky, "Интерполяция с x_i Чебышева")
+    # graph.add_green_plot(x_data, y_approximate_linear, "Интерполяция с линейным x_i")
+    graph.add_init_black_data(x_unit_cholesky, y_unit_cholesky).show()
+    err = max([abs(y_r - y_a) for y_r, y_a in zip(y_real, y_approximate_cholesky)])
+    print(err)
 
 
 if __name__ == "__main__":

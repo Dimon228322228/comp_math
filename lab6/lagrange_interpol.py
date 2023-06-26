@@ -1,4 +1,4 @@
-from typing import List, Callable
+from typing import List
 
 
 class InvalidElementsError(Exception):
